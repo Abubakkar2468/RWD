@@ -48,6 +48,7 @@
 
                 var dDate = new Date();
                 // var dTime;
+                var inter;
                 var dTime = dDate.getTime();
                 var aud = new Audio();
                 aud.src = "sweetalarm.mp3";
@@ -56,62 +57,62 @@
                 // init();
                 set.onclick = function () {
                     // var distance1;
-                    if(uTime>dTime)
-                    {
-                    var inter = setInterval(function () {
-                        var uDate = new Date(userDate);
-                        // console.log(uDate);
-                        var uTime = uDate.getTime();
-                        //  console.log(uTime);
-                        // var Sec=uDate.getMilliseconds();
+                    if (uTime > dTime) {
+                     inter = setInterval(function () {
+                            var uDate = new Date(userDate);
+                            // console.log(uDate);
+                            var uTime = uDate.getTime();
+                            //  console.log(uTime);
+                            // var Sec=uDate.getMilliseconds();
 
-                        var dDate = new Date();
-                        var dTime = dDate.getTime();
-                        console.log(uTime);
-                        // console.log(Sec);
-                        // console.log(Math.floor((uTime % (1000 * 60)) / (1000)));
-                        var uSec=Math.floor((uTime % (1000 * 60)) / (1000));
-                        // uTime=uTime-uSec;
-                        var distance = uTime - dTime;
-                        
-                        var time = Math.floor((distance / (1000 * 60 * 60 * 24)));
-                        var hour = Math.floor((distance % (1000 * 60 * 60 * 24)) / (
-                            1000 * 60 * 60));
-                        var min = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                        //  console.log(min);
-                        var sec = (Math.floor((distance % (1000 * 60)) / (1000)));
-                        // distance=distance-(Math.floor((uTime % (1000 * 60)) / (1000)));
-                        // var sSec=sec-uSec;
-                        //  console.log(sec);
-                        document.getElementById("alaram").innerHTML = time + "days" +
-                            hour + "hrs" + min + "min" + sec + "secs";
+                            var dDate = new Date();
+                            var dTime = dDate.getTime();
+                            console.log(uTime);
+                            // console.log(Sec);
+                            // console.log(Math.floor((uTime % (1000 * 60)) / (1000)));
+                            var uSec = Math.floor((uTime % (1000 * 60)) / (1000));
+                            // uTime=uTime-uSec;
+                            var distance = uTime - dTime;
 
-                        if (distance < 0) {
+                            var time = Math.floor((distance / (1000 * 60 * 60 * 24)));
+                            var hour = Math.floor((distance % (1000 * 60 * 60 * 24)) / (
+                                1000 * 60 * 60));
+                            var min = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                            //  console.log(min);
+                            var sec = (Math.floor((distance % (1000 * 60)) / (1000)));
+                            // distance=distance-(Math.floor((uTime % (1000 * 60)) / (1000)));
+                            // var sSec=sec-uSec;
+                            //  console.log(sec);
+                            document.getElementById("alaram").innerHTML = time + "days" +
+                                hour + "hrs" + min + "min" + sec + "secs";
 
-                            clearInterval(inter);
-                            document.getElementById("alaram").style.display = "none";
-                            // var aud = new Audio();
-                            // aud.src = "sweetalarm.mp3";
-                            aud.play();
-                        }
-                        
+                            if (distance < 0) {
 
-                        //  distance1=distance;
-                    }, 1000);
-                    }
+                                clearInterval(inter);
+                                document.getElementById("alaram").style.display = "none";
+                                // var aud = new Audio();
+                                // aud.src = "sweetalarm.mp3";
+                                aud.play();
+                            }
 
-                    else{
+
+                            //  distance1=distance;
+                        }, 1000);
+                    } else {
                         document.getElementById("alaram").innerHTML =
-                             "Select Valid Time";
-                             clearInterval(inter);
-                           alert("Time is invalid");
+                            "Select Valid Time";
+                        clearInterval(inter);
+                        alert("Time is invalid");
                     }
                     // console.log(distance1);
 
                 }
-                can.onclick=function(){
+                can.onclick = function () {
                     console.log(can);
+                    clearInterval(inter);
+                    document.getElementById("alaram").style.display = "none";
                     // var aud = new Audio("sweetalarm.mp3");
+                    aud.src = "";
                     aud.pause();
                 }
                 // s
